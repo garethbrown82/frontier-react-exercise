@@ -10,6 +10,7 @@ import {
   NumberContentComponent,
   BooleanContentComponent,
   MonoChoiceContentComponent,
+  MultiChoiceContentComponent,
 } from './contentComponents';
 import styled from 'styled-components';
 
@@ -70,9 +71,9 @@ const getContent = (contentItem: ContentItem) => {
     return <MonoChoiceContentComponent monoChoiceContent={contentItem} />;
   }
 
-  return (
-    <div>
-      <p>{contentItem.question_text} ({contentItem.type})</p>
-    </div>
-  );
+  if (contentItem.type === Type.MultiChoice) {
+    return <MultiChoiceContentComponent multiChoiceContent={contentItem} />;
+  }
+
+  return null;
 };

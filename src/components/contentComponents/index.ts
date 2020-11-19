@@ -7,6 +7,7 @@ import { TextareaContentComponent } from './TextareaContentComponent';
 import { NumberContentComponent } from './NumberContentComponent';
 import { BooleanContentComponent } from './BooleanContentComponent';
 import { MonoChoiceContentComponent } from './MonoChoiceContentComponent';
+import { MultiChoiceContentComponent } from './MultiChoiceContentComponent';
 
 
 export {
@@ -19,4 +20,5 @@ export {
   NumberContentComponent,
   BooleanContentComponent,
   MonoChoiceContentComponent,
+  MultiChoiceContentComponent,
 };
