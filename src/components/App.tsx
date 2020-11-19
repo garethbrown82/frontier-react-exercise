@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const StyledFormContainer = styled.div`
   max-width: 500px;
   margin: auto;
-`
+`;
 
 function App() {
   // Check your console to see the full instructions!

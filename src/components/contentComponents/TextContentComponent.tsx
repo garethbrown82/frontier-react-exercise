@@ -1,11 +1,6 @@
 import React from 'react';
 import { TextContent } from '../../data/formInstructionsInterface';
-import { Label } from '../sharedComponents/Label';
-import styled from 'styled-components';
-
-const StyleInput = styled.input`
-  padding: 10px;
-`;
+import { Label, Input } from '../sharedComponents';
 
 interface TextContentProps {
   textContent: TextContent;
@@ -17,7 +12,7 @@ export const TextContentComponent = ({ textContent }: TextContentProps) => {
   return (
     <>
       <Label htmlFor={textContent.id}>{textContent.question_text}</Label>
-      <StyleInput type="text" id={textContent.id} name={textContent.id} />
+      <Input type="text" id={textContent.id} name={textContent.id} />
     </>
   );
 };

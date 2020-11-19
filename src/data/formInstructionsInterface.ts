@@ -36,7 +36,7 @@ interface BooleanContent {
   readonly question_text: string;
 }
 
-interface EmailContent {
+export interface EmailContent {
   readonly id: string;
   readonly type: Type.Email;
   readonly metadata: {
@@ -48,7 +48,7 @@ interface EmailContent {
   readonly question_text: string;
 }
 
-interface LocationContent {
+export interface LocationContent {
   readonly id: string;
   readonly type: Type.Location;
   readonly metadata: {
@@ -59,7 +59,7 @@ interface LocationContent {
   readonly question_text: string;
 }
 
-interface MonoChoiceContent {
+export interface MonoChoiceContent {
   readonly id: string;
   readonly type: Type.MonoChoice;
   readonly metadata: {
@@ -69,7 +69,7 @@ interface MonoChoiceContent {
   readonly question_text: string;
 }
 
-interface MultiChoiceContent {
+export interface MultiChoiceContent {
   readonly id: string;
   readonly type: Type.MultiChoice;
   readonly output: ReadonlyArray<OutputItem>;
@@ -80,7 +80,7 @@ interface MultiChoiceContent {
   readonly question_text: string;
 }
 
-interface NumberContent {
+export interface NumberContent {
   readonly id: string;
   readonly type: Type.Number;
   readonly metadata: {
@@ -89,7 +89,7 @@ interface NumberContent {
   readonly question_text: string;
 }
 
-interface PhoneContent {
+export interface PhoneContent {
   readonly id: string;
   readonly type: Type.Phone;
   readonly metadata: {
@@ -112,7 +112,7 @@ export interface TextContent {
   readonly question_text: string;
 }
 
-interface TextAreaContent {
+export interface TextAreaContent {
   readonly id: string;
   readonly type: Type.TextArea;
   readonly metadata: {
@@ -122,7 +122,7 @@ interface TextAreaContent {
   readonly question_text: string;
 }
 
-interface UrlContent {
+export interface UrlContent {
   readonly id: string;
   readonly type: Type.Url;
   readonly metadata: {

@@ -5,3 +5,8 @@ export const Label = styled.label`
   font-weight: bold;
   margin-bottom: 10px;
 `;
+
+
+export const Input = styled.input`
+  padding: 10px;
+`;

@@ -19,5 +19,5 @@ export const MainFormComponent = ({ formSections }: MainFormProps) => {
         />
       ))}
     </>
-  )
-}
+  );
+};

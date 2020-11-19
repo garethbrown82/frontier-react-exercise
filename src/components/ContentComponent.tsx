@@ -1,6 +1,10 @@
 import React from 'react';
 import { ContentItem, Type } from '../data/formInstructionsInterface';
-import { TextContentComponent } from './content/TextContentComponent';
+import {
+  TextContentComponent,
+  EmailContentComponent,
+  PhoneContentComponent,
+} from './contentComponents';
 import styled from 'styled-components';
 
 const StyledContentContainer = styled.div`
@@ -26,6 +30,14 @@ export const ContentComponent = ({ contentItem }: ContentProps) => {
 const getContent = (contentItem: ContentItem) => {
   if (contentItem.type === Type.Text) {
     return <TextContentComponent textContent={contentItem} />;
+  }
+
+  if (contentItem.type === Type.Email) {
+    return <EmailContentComponent emailContent={contentItem} />;
+  }
+
+  if (contentItem.type === Type.Phone) {
+    return <PhoneContentComponent phoneContent={contentItem} />;
   }
 
   return (

@@ -30,7 +30,8 @@
       "react-app/jest"
     ],
     "rules": {
-      "semi": 2
+      "semi": 2,
+      "comma-dangle": [2, "always-multiline"]
     }
   },
   "browserslist": {
