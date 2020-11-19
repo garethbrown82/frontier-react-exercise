@@ -8,10 +8,10 @@ interface UserDetailsState {
 
 export interface SectionState {
   id: string;
-  content: ContentItem[];
+  content: ContentItemState[];
 }
 
-export interface ContentItem {
+export interface ContentItemState {
   id: string;
   value: string | boolean | number;
   isValid: boolean;

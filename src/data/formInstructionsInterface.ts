@@ -154,7 +154,7 @@ export enum Type {
   Url = 'url',
 }
 
-enum Format {
+export enum Format {
   Text = 'text',
   Email = 'email',
   Url = 'url',

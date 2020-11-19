@@ -1,4 +1,4 @@
-import { ContentItem, SectionState, State } from './stateInterface';
+import { ContentItemState, SectionState, State } from './stateInterface';
 import { Action, ActionType } from './actions';
 
 const initialState: State = {
@@ -16,7 +16,7 @@ export const userInputReducer = (state: State = initialState, action: Action = {
     const contentIndex = sections[sectionIndex].content.findIndex((item) => item.id === contentId);
 
     const contentItems = sections[sectionIndex].content;
-    const updatedContentItem: ContentItem = { ...contentItems[contentIndex], value };
+    const updatedContentItem: ContentItemState = { ...contentItems[contentIndex], value };
 
     const updatedContent = [
       ...contentItems.slice(0, contentIndex),
