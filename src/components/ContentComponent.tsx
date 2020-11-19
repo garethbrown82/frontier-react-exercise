@@ -9,6 +9,7 @@ import {
   TextareaContentComponent,
   NumberContentComponent,
   BooleanContentComponent,
+  MonoChoiceContentComponent,
 } from './contentComponents';
 import styled from 'styled-components';
 
@@ -63,6 +64,10 @@ const getContent = (contentItem: ContentItem) => {
 
   if (contentItem.type === Type.Boolean) {
     return <BooleanContentComponent booleanContent={contentItem} />;
+  }
+
+  if (contentItem.type === Type.MonoChoice) {
+    return <MonoChoiceContentComponent monoChoiceContent={contentItem} />;
   }
 
   return (

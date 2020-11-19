@@ -6,6 +6,7 @@ import { UrlContentComponent } from './UrlContentComponent';
 import { TextareaContentComponent } from './TextareaContentComponent';
 import { NumberContentComponent } from './NumberContentComponent';
 import { BooleanContentComponent } from './BooleanContentComponent';
+import { MonoChoiceContentComponent } from './MonoChoiceContentComponent';
 
 
 export {
@@ -17,4 +18,5 @@ export {
   TextareaContentComponent,
   NumberContentComponent,
   BooleanContentComponent,
+  MonoChoiceContentComponent,
 };

@@ -14,3 +14,7 @@ export const Input = styled.input`
 export const Textarea = styled.textarea`
   padding: 10px;
 `;
+
+export const Select = styled.select`
+  padding: 10px;
+`;
