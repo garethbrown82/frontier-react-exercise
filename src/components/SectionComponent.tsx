@@ -8,7 +8,7 @@ const StyledWrapper = styled.div`
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
-`
+`;
 
 interface SectionProps {
   section: Section;
@@ -27,5 +27,5 @@ export const SectionComponent = ({ section }: SectionProps) => {
         />
       ))}
     </StyledWrapper>
-  )
-}
+  );
+};

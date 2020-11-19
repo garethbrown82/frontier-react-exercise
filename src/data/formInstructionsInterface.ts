@@ -102,7 +102,7 @@ interface PhoneContent {
   readonly question_text: string;
 }
 
-interface TextContent {
+export interface TextContent {
   readonly id: string;
   readonly type: Type.Text;
   readonly metadata: {
@@ -141,7 +141,7 @@ interface OutputItem {
   readonly originStep: number;
 }
 
-enum Type {
+export enum Type {
   Boolean = 'boolean',
   Email = 'email',
   Location = 'location',
