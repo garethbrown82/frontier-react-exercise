@@ -15,7 +15,7 @@ export interface Section {
   readonly content: ReadonlyArray<ContentItem>;
 }
 
-type ContentItem = 
+export type ContentItem = 
   BooleanContent
   | EmailContent
   | LocationContent
