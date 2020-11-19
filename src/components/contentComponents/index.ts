@@ -4,6 +4,7 @@ import { PhoneContentComponent } from './PhoneContentComponent';
 import { LocationContentComponent } from './LocationContentComponent';
 import { UrlContentComponent } from './UrlContentComponent';
 import { TextareaContentComponent } from './TextareaContentComponent';
+import { NumberContentComponent } from './NumberContentComponent';
 
 
 export {
@@ -13,4 +14,5 @@ export {
   LocationContentComponent,
   UrlContentComponent,
   TextareaContentComponent,
+  NumberContentComponent,
 };

@@ -7,6 +7,7 @@ import {
   LocationContentComponent,
   UrlContentComponent,
   TextareaContentComponent,
+  NumberContentComponent,
 } from './contentComponents';
 import styled from 'styled-components';
 
@@ -53,6 +54,10 @@ const getContent = (contentItem: ContentItem) => {
 
   if (contentItem.type === Type.Textarea) {
     return <TextareaContentComponent textareaContent={contentItem} />;
+  }
+
+  if (contentItem.type === Type.Number) {
+    return <NumberContentComponent numberContent={contentItem} />;
   }
 
   return (
