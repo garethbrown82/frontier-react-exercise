@@ -27,7 +27,7 @@ export type ContentItem =
   | TextareaContent
   | UrlContent
 
-interface BooleanContent {
+export interface BooleanContent {
   readonly id: string;
   readonly type: Type.Boolean;
   readonly metadata: {

@@ -8,6 +8,7 @@ import {
   UrlContentComponent,
   TextareaContentComponent,
   NumberContentComponent,
+  BooleanContentComponent,
 } from './contentComponents';
 import styled from 'styled-components';
 
@@ -58,6 +59,10 @@ const getContent = (contentItem: ContentItem) => {
 
   if (contentItem.type === Type.Number) {
     return <NumberContentComponent numberContent={contentItem} />;
+  }
+
+  if (contentItem.type === Type.Boolean) {
+    return <BooleanContentComponent booleanContent={contentItem} />;
   }
 
   return (
