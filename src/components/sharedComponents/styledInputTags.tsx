@@ -10,3 +10,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   padding: 10px;
 `;
+
+export const Textarea = styled.textarea`
+  padding: 10px;
+`;

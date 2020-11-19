@@ -4,6 +4,9 @@ import {
   TextContentComponent,
   EmailContentComponent,
   PhoneContentComponent,
+  LocationContentComponent,
+  UrlContentComponent,
+  TextareaContentComponent,
 } from './contentComponents';
 import styled from 'styled-components';
 
@@ -38,6 +41,18 @@ const getContent = (contentItem: ContentItem) => {
 
   if (contentItem.type === Type.Phone) {
     return <PhoneContentComponent phoneContent={contentItem} />;
+  }
+
+  if (contentItem.type === Type.Location) {
+    return <LocationContentComponent locationContent={contentItem} />;
+  }
+
+  if (contentItem.type === Type.Url) {
+    return <UrlContentComponent urlContent={contentItem} />;
+  }
+
+  if (contentItem.type === Type.Textarea) {
+    return <TextareaContentComponent textareaContent={contentItem} />;
   }
 
   return (

@@ -24,7 +24,7 @@ export type ContentItem =
   | NumberContent
   | PhoneContent
   | TextContent
-  | TextAreaContent
+  | TextareaContent
   | UrlContent
 
 interface BooleanContent {
@@ -112,9 +112,9 @@ export interface TextContent {
   readonly question_text: string;
 }
 
-export interface TextAreaContent {
+export interface TextareaContent {
   readonly id: string;
-  readonly type: Type.TextArea;
+  readonly type: Type.Textarea;
   readonly metadata: {
     readonly placeholder?: string;
     readonly required: boolean;
@@ -150,7 +150,7 @@ export enum Type {
   Number = 'number',
   Phone = 'phone',
   Text = 'text',
-  TextArea = 'textarea',
+  Textarea = 'textarea',
   Url = 'url',
 }
 
