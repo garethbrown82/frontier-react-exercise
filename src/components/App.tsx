@@ -1,16 +1,22 @@
 import React from 'react';
-import formInstructions from '../data/form_instructions.json';
+import { formInstructions } from '../data/formInstructions';
+import { MainFormComponent } from './MainFormComponent';
+import styled from 'styled-components';
+
+const StyledFormContainer = styled.div`
+  max-width: 500px;
+  margin: auto;
+`
 
 function App() {
   // Check your console to see the full instructions!
   console.log(formInstructions);
+  if (!formInstructions) return null;
 
   return (
-    <div>
-      <img src="https://frontier-public-assets.s3-us-west-2.amazonaws.com/frontier-corona-logo.svg" alt="Frontier Logo" />
-      <h1>👋 Hello from Team Frontier!</h1>
-      <p>Good luck with the exercise. If you have any questions please email Jason: jason@frontier.jobs</p>
-    </div>
+    <StyledFormContainer>
+      <MainFormComponent formSections={formInstructions.sections} />
+    </StyledFormContainer>
   );
 }
 

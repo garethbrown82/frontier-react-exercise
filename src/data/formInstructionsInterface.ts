@@ -9,7 +9,7 @@ interface Theme {
   readonly background_color: string;
 }
 
-interface Section {
+export interface Section {
   readonly id: string;
   readonly title: string;
   readonly content: ReadonlyArray<ContentItem>;
