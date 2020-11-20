@@ -12,6 +12,8 @@ export const TextareaContentComponent = ({ textareaContent, dispatch, contentIte
   if (!textareaContent) return null;
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
     dispatch(updateValue(sectionId, contentItemState.id, event.target.value));
   };
   

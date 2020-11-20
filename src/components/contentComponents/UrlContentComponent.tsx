@@ -12,6 +12,8 @@ export const UrlContentComponent = ({ urlContent, dispatch, contentItemState, se
   if (!urlContent) return null;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
     dispatch(updateValue(sectionId, contentItemState.id, event.target.value));
   };
 

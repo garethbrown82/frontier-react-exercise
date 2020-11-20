@@ -12,6 +12,8 @@ export const EmailContentComponent = ({ emailContent, dispatch, contentItemState
   if (!emailContent) return null;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
     dispatch(updateValue(sectionId, contentItemState.id, event.target.value));
   };
 

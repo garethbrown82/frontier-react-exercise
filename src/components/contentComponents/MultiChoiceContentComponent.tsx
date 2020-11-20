@@ -12,6 +12,8 @@ export const MultiChoiceContentComponent = ({ multiChoiceContent, dispatch, cont
   if (!multiChoiceContent) return null;
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
     const options = event.target.options;
 
     let selectedOptions = [];

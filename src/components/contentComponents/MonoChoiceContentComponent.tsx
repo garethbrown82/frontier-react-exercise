@@ -12,6 +12,8 @@ export const MonoChoiceContentComponent = ({ monoChoiceContent, dispatch, conten
   if (!monoChoiceContent) return null;
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
     dispatch(updateValue(sectionId, contentItemState.id, event.target.value));
   };
 
