@@ -1,8 +1,9 @@
 import React from 'react';
 import { MultiChoiceContent } from '../../data/formInstructionsInterface';
-import { updateValue } from '../../state/actions';
+import { updateIsValid, updateValue } from '../../state/actions';
+import { validate } from '../../state/utilities';
 import { SharedContentProps } from '../contentInterfaces';
-import { Label, Select } from '../sharedComponents';
+import { Label, Select, ValidationMessage } from '../sharedComponents';
 
 interface MultiChoiceContentProps extends SharedContentProps {
   multiChoiceContent: MultiChoiceContent;
@@ -23,6 +24,16 @@ export const MultiChoiceContentComponent = ({ multiChoiceContent, dispatch, cont
       }
     }
     dispatch(updateValue(sectionId, contentItemState.id, selectedOptions));
+    checkValidation(event.target.value);
+  };
+
+  const handleBlur = (event: any) => { 
+    checkValidation(event.target.value);
+  };
+
+  const checkValidation = (value: string) => {
+    const isValid = validate(value as string, multiChoiceContent.metadata.required);
+    dispatch(updateIsValid(sectionId, contentItemState.id, isValid));
   };
   
   return (
@@ -32,6 +43,7 @@ export const MultiChoiceContentComponent = ({ multiChoiceContent, dispatch, cont
         id={multiChoiceContent.id}
         name={multiChoiceContent.id}
         onChange={handleChange}
+        onBlur={handleBlur}
         value={Array.isArray(contentItemState.value) ? contentItemState.value : []}
         multiple
       >
@@ -43,6 +55,7 @@ export const MultiChoiceContentComponent = ({ multiChoiceContent, dispatch, cont
           );
         })}
       </Select>
+      {!contentItemState.isValid && <ValidationMessage>* Please make a selection</ValidationMessage>}
     </>
   );
 };
