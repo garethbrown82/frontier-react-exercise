@@ -1,8 +1,9 @@
 import React from 'react';
 import { LocationContent } from '../../data/formInstructionsInterface';
-import { updateValue } from '../../state/actions';
+import { updateIsValid, updateValue } from '../../state/actions';
+import { validate } from '../../state/utilities';
 import { SharedContentProps } from '../contentInterfaces';
-import { Label, Input } from '../sharedComponents';
+import { Label, Input, ValidationMessage } from '../sharedComponents';
 
 interface LocationContentProps extends SharedContentProps {
   locationContent: LocationContent;
@@ -15,6 +16,16 @@ export const LocationContentComponent = ({ locationContent, dispatch, contentIte
     event.preventDefault();
     event.stopPropagation();
     dispatch(updateValue(sectionId, contentItemState.id, event.target.value));
+    checkValidation(event.target.value);
+  };
+
+  const handleBlur = (event: any) => { 
+    checkValidation(event.target.value);
+  };
+
+  const checkValidation = (value: string) => {
+    const isValid = validate(value as string, locationContent.metadata.required);
+    dispatch(updateIsValid(sectionId, contentItemState.id, isValid));
   };
 
   return (
@@ -26,8 +37,10 @@ export const LocationContentComponent = ({ locationContent, dispatch, contentIte
         name={locationContent.id}
         placeholder={locationContent.metadata?.placeholder}
         onChange={handleChange}
+        onBlur={handleBlur}
         value={contentItemState.value as string}
       />
+      {!contentItemState.isValid && <ValidationMessage>* Please enter valid text.</ValidationMessage>}
     </>
   );
 };
