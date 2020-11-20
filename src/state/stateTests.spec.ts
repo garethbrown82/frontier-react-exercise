@@ -150,12 +150,12 @@ describe('createStateFromInstructions', () => {
         content: [
           {
             id: contentId1,
-            value: null,
+            value: '',
             isValid: false,
           },
           {
             id: contentId2,
-            value: null,
+            value: '',
             isValid: false,
           },
         ],
@@ -165,12 +165,12 @@ describe('createStateFromInstructions', () => {
         content: [
           {
             id: contentId3,
-            value: null,
+            value: '',
             isValid: false,
           },
           {
             id: contentId4,
-            value: null,
+            value: '',
             isValid: false,
           },
         ],
@@ -180,13 +180,3 @@ describe('createStateFromInstructions', () => {
     expect(createStateFromSections(sections)).toEqual(expectedResult);
   });
 });
-
-export interface TextContent {
-  readonly id: string;
-  readonly type: Type.Text;
-  readonly metadata: {
-    readonly format: Format.Text;
-    readonly required: boolean;
-  }
-  readonly question_text: string;
-}
