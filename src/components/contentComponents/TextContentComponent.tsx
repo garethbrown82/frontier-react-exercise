@@ -1,8 +1,9 @@
 import React from 'react';
 import { TextContent } from '../../data/formInstructionsInterface';
-import { updateValue } from '../../state/actions';
+import { updateIsValid, updateValue } from '../../state/actions';
+import { validate } from '../../state/utilities';
 import { SharedContentProps } from '../contentInterfaces';
-import { Label, Input } from '../sharedComponents';
+import { Label, Input, ValidationMessage } from '../sharedComponents';
 
 interface TextContentProps extends SharedContentProps {
   textContent: TextContent;
@@ -15,6 +16,14 @@ export const TextContentComponent = ({ textContent, dispatch, contentItemState, 
     event.preventDefault();
     event.stopPropagation();
     dispatch(updateValue(sectionId, contentItemState.id, event.target.value));
+    checkValidation();
+  };
+
+  const handleBlur = () => { checkValidation(); };
+
+  const checkValidation = () => {
+    const isValid = validate(contentItemState.value, textContent.metadata.required);
+    dispatch(updateIsValid(sectionId, contentItemState.id, isValid));
   };
 
   return (
@@ -25,8 +34,10 @@ export const TextContentComponent = ({ textContent, dispatch, contentItemState, 
         id={textContent.id}
         name={textContent.id}
         onChange={handleChange}
+        onBlur={handleBlur}
         value={contentItemState.value as string}
       />
+      {!contentItemState.isValid && <ValidationMessage>* Please enter valid text.</ValidationMessage>}
     </>
   );
 };

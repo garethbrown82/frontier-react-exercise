@@ -1,8 +1,9 @@
 import React from 'react';
 import { BooleanContent } from '../../data/formInstructionsInterface';
-import { updateValue } from '../../state/actions';
+import { updateIsValid, updateValue } from '../../state/actions';
+import { validate } from '../../state/utilities';
 import { SharedContentProps } from '../contentInterfaces';
-import { Label, Input } from '../sharedComponents';
+import { Label, Input, ValidationMessage } from '../sharedComponents';
 
 interface BooleanContentProps extends SharedContentProps {
   booleanContent: BooleanContent;
@@ -14,6 +15,10 @@ export const BooleanContentComponent = ({ booleanContent, dispatch, contentItemS
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.stopPropagation();
     dispatch(updateValue(sectionId, contentItemState.id, event.target.checked));
+
+    // Check validation
+    const isValid = validate(event.target.value, booleanContent.metadata.required);
+    dispatch(updateIsValid(sectionId, contentItemState.id, isValid));
   };
 
   return (
@@ -26,6 +31,7 @@ export const BooleanContentComponent = ({ booleanContent, dispatch, contentItemS
         onChange={handleChange}
         checked={contentItemState.value as boolean}
       />
+      {!contentItemState.isValid && <ValidationMessage>* Please enter valid text.</ValidationMessage>}
     </>
   );
 };

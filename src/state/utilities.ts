@@ -27,3 +27,29 @@ export const createStateFromSections = (sections: ReadonlyArray<Section>) => {
 
   return sectionsState;
 };
+
+export interface MetaData {
+  readonly required: boolean;
+  readonly format?: string;
+  readonly pattern?: string;
+  readonly maxlength?: number;
+  readonly placeholder?: string;
+}
+
+export const validate = (value: string | number | boolean | string[], required: boolean, pattern: string = '') => {
+  let isValid = true;
+
+  // Validate required
+  if (required) {
+    isValid = Boolean(value);
+  }
+
+  // Validate Regex
+  if (pattern) {
+    const regex = RegExp(pattern);
+    isValid = regex.test(value as string);
+  }
+
+  return isValid;
+};
+

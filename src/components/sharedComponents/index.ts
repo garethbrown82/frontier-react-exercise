@@ -3,6 +3,7 @@ import {
   Input,
   Textarea,
   Select,
+  ValidationMessage,
 } from './styledInputTags';
 
 export {
@@ -10,4 +11,5 @@ export {
   Input,
   Textarea,
   Select,
+  ValidationMessage,
 };

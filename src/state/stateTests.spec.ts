@@ -2,7 +2,7 @@ import { Section, Type, Format } from '../data/formInstructionsInterface';
 import { updateValue, ActionType, UpdateValue } from './actions';
 import { State, SectionState } from './stateInterface';
 import { userInputReducer } from './userInputReducer';
-import { createContent, createStateFromSections } from './utilities';
+import { createContent, createStateFromSections, MetaData, validate } from './utilities';
 
 describe('actions', () => {
   it('creates an action to update a value', () => {
@@ -178,5 +178,35 @@ describe('createStateFromInstructions', () => {
     ];
 
     expect(createStateFromSections(sections)).toEqual(expectedResult);
+  });
+});
+
+describe('validate', () => {
+  it('correctly invalidates required string', () => {
+    expect(validate('', true)).toBe(false);
+  });
+  
+  it('correctly invalidates required number', () => {
+    expect(validate(0, true)).toBe(false);
+  });
+  
+  it('correctly validates required string', () => {
+    expect(validate('test-text', true)).toBe(true);
+  });
+  
+  it('correctly validates required number', () => {
+    expect(validate(4, true)).toBe(true);
+  });
+
+  it('correctly validates regex', () => {
+    const pattern = "[0-9]{3}-?[0-9]{3}-?[0-9]{4}";
+
+    expect(validate('004-000-0055', true, pattern)).toBe(true);
+  });
+
+  it('correctly invalidates regex', () => {
+    const pattern = "[0-9]{3}-?[0-9]{3}-?[0-9]{4}";
+
+    expect(validate('0hh-000-0055', true, pattern)).toBe(false);
   });
 });
