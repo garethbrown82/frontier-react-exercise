@@ -5,6 +5,19 @@ import { userInputReducer } from '../state/userInputReducer';
 import { State } from '../state/stateInterface';
 import { createStateFromSections } from '../state/utilities';
 import { Action } from '../state/actions';
+import styled from 'styled-components';
+
+const ButtonWrapper = styled.div`
+  margin: 10px;
+`;
+
+const StyledButton = styled.button`
+  background-color: white;
+  border: solid 1px black;
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+`;
 
 interface MainFormProps {
   formSections: ReadonlyArray<Section>;
@@ -18,11 +31,15 @@ export const MainFormComponent = ({ formSections }: MainFormProps) => {
   };
 
   const [state, dispatch]: [State, React.Dispatch<Action>] = useReducer(userInputReducer, initialState);
+
+  const handleSubmit = () => {
+    console.log('User input state: ', state.userDetails);
+  };
+
   if (!formSections) return null;
   
   return (
     <>
-      <h1>Main Form</h1>
       {formSections.map((section) => {
         const sectionState = state.userDetails.sections.find((sectionState) => sectionState.id === section.id);
         if (!sectionState) return null;
@@ -36,6 +53,9 @@ export const MainFormComponent = ({ formSections }: MainFormProps) => {
           />
         );
       })}
+      <ButtonWrapper>
+        <StyledButton onClick={handleSubmit}>Submit</StyledButton>
+      </ButtonWrapper>
     </>
   );
 };
