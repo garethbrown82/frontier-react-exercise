@@ -38,10 +38,8 @@ export const MainFormComponent = ({ formSections }: MainFormProps = { formSectio
   };
   
   const [state, dispatch]: [State, React.Dispatch<Action>] = useReducer(userInputReducer, initialState);
-
   useEffect(() => {
     setIsAllInputValid(isAllValid(state.userDetails.sections));
-    console.log('isAllValid: ', isAllInputValid);
   }, [state.userDetails.sections, isAllInputValid]);
 
   const handleSubmit = () => {

@@ -24,7 +24,6 @@ export const UrlContentComponent = ({ urlContent, dispatch, contentItemState, se
   };
 
   const checkValidation = (value: string) => {
-    console.log('check url', value);
     const isValid = validate(value as string, urlContent.metadata.required);
     dispatch(updateIsValid(sectionId, contentItemState.id, isValid));
   };
