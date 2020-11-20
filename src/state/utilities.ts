@@ -18,7 +18,10 @@ export const createSection = (section: Section): SectionState => ({
 
 export const createStateFromSections = (sections: ReadonlyArray<Section>) => {
   const sectionsState: SectionState[] = sections.map((section) => {
-    const contentState = section.content.map((item) => createContent(item.id));
+    const contentState = section.content.map((item) => {
+      const isValid = !item.metadata.required;
+      return createContent(item.id, undefined, isValid);
+    });
     return {
       id: section.id,
       content: contentState,

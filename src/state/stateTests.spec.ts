@@ -136,7 +136,7 @@ describe('createStateFromInstructions', () => {
             type: Type.Text,
             metadata: {
               format: Format.Text,
-              required: true,
+              required: false,
             },
             question_text: 'test-text4',
           },
@@ -151,12 +151,12 @@ describe('createStateFromInstructions', () => {
           {
             id: contentId1,
             value: '',
-            isValid: true,
+            isValid: false,
           },
           {
             id: contentId2,
             value: '',
-            isValid: true,
+            isValid: false,
           },
         ],
       },
@@ -166,7 +166,7 @@ describe('createStateFromInstructions', () => {
           {
             id: contentId3,
             value: '',
-            isValid: true,
+            isValid: false,
           },
           {
             id: contentId4,
