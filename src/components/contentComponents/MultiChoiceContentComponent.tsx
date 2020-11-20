@@ -30,13 +30,12 @@ export const MultiChoiceContentComponent = ({ multiChoiceContent, dispatch, cont
         id={multiChoiceContent.id}
         name={multiChoiceContent.id}
         onChange={handleChange}
+        value={Array.isArray(contentItemState.value) ? contentItemState.value : []}
         multiple
       >
         {multiChoiceContent.metadata?.options.map(({value, label}) => {
-          const itemStateValues = contentItemState.value as Array<string>;
-          const isSelected = itemStateValues.includes(value);
           return (
-            <option key={value} value={value} selected={isSelected}>
+            <option key={value} value={value}>
               {label}
             </option>
           );
