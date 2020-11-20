@@ -5,7 +5,7 @@ export enum ActionType {
 export const updateValue = (
   sectionId: string,
   contentId: string,
-  value: string | number | boolean,
+  value: string | number | boolean | Array<string>,
 ): UpdateValue => ({
   type: ActionType.UpdateValue,
   payload: {
@@ -20,7 +20,7 @@ export interface UpdateValue {
   payload: {
     sectionId: string;
     contentId: string;
-    value: string | number | boolean;
+    value: string | number | boolean | Array<string>;
   }
 }
 

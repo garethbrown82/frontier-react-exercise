@@ -13,6 +13,6 @@ export interface SectionState {
 
 export interface ContentItemState {
   id: string;
-  value: string | boolean | number;
+  value: string | boolean | number | Array<string>;
   isValid: boolean;
 }
