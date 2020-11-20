@@ -61,6 +61,8 @@ const getContent = (
       <EmailContentComponent
         emailContent={contentItem}
         dispatch={dispatch}
+        contentItemState={contentItemState}
+        sectionId={sectionId}
       />
     );
   }
