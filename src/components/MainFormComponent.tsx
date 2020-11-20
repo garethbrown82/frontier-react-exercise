@@ -4,6 +4,7 @@ import { SectionComponent } from './SectionComponent';
 import { userInputReducer } from '../state/userInputReducer';
 import { State } from '../state/stateInterface';
 import { createStateFromSections } from '../state/utilities';
+import { Action } from '../state/actions';
 
 interface MainFormProps {
   formSections: ReadonlyArray<Section>;
@@ -16,19 +17,26 @@ export const MainFormComponent = ({ formSections }: MainFormProps) => {
     },
   };
 
-  const [state, dispatch] = useReducer(userInputReducer, initialState);
-  console.log('state: ', state);
+  const [state, dispatch]: [State, React.Dispatch<Action>] = useReducer(userInputReducer, initialState);
+
   if (!formSections) return null;
   
   return (
     <>
       <h1>Main Form</h1>
-      {formSections.map((section) => (
-        <SectionComponent
-          key={section.id}
-          section={section}
-        />
-      ))}
+      {formSections.map((section) => {
+        const sectionState = state.userDetails.sections.find((sectionState) => sectionState.id === section.id);
+        if (!sectionState) return null;
+
+        return (
+          <SectionComponent
+            key={section.id}
+            section={section}
+            dispatch={dispatch}
+            sectionState={sectionState}
+          />
+        );
+      })}
     </>
   );
 };

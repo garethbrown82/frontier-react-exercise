@@ -1,12 +1,13 @@
 import React from 'react';
 import { MonoChoiceContent } from '../../data/formInstructionsInterface';
+import { WithDispatch } from '../contentInterfaces';
 import { Label, Select } from '../sharedComponents';
 
-interface MonoChoiceContentProps {
+interface MonoChoiceContentProps extends WithDispatch {
   monoChoiceContent: MonoChoiceContent;
 }
 
-export const MonoChoiceContentComponent = ({ monoChoiceContent }: MonoChoiceContentProps) => {
+export const MonoChoiceContentComponent = ({ monoChoiceContent, dispatch }: MonoChoiceContentProps) => {
   if (!monoChoiceContent) return null;
 
   return (

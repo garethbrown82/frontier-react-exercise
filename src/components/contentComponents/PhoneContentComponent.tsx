@@ -1,12 +1,13 @@
 import React from 'react';
 import { PhoneContent } from '../../data/formInstructionsInterface';
+import { WithDispatch } from '../contentInterfaces';
 import { Label, Input } from '../sharedComponents';
 
-interface PhoneContentProps {
+interface PhoneContentProps extends WithDispatch {
   phoneContent: PhoneContent;
 }
 
-export const PhoneContentComponent = ({ phoneContent }: PhoneContentProps) => {
+export const PhoneContentComponent = ({ phoneContent, dispatch }: PhoneContentProps) => {
   if (!phoneContent) return null;
 
   return (

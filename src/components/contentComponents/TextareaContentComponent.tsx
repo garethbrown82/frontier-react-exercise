@@ -1,12 +1,13 @@
 import React from 'react';
 import { TextareaContent } from '../../data/formInstructionsInterface';
+import { WithDispatch } from '../contentInterfaces';
 import { Label, Textarea } from '../sharedComponents';
 
-interface TextareaContentProps {
+interface TextareaContentProps extends WithDispatch {
   textareaContent: TextareaContent;
 }
 
-export const TextareaContentComponent = ({ textareaContent }: TextareaContentProps) => {
+export const TextareaContentComponent = ({ textareaContent, dispatch }: TextareaContentProps) => {
   if (!textareaContent) return null;
 
   return (

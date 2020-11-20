@@ -1,12 +1,13 @@
 import React from 'react';
 import { LocationContent } from '../../data/formInstructionsInterface';
+import { WithDispatch } from '../contentInterfaces';
 import { Label, Input } from '../sharedComponents';
 
-interface LocationContentProps {
+interface LocationContentProps extends WithDispatch {
   locationContent: LocationContent;
 }
 
-export const LocationContentComponent = ({ locationContent }: LocationContentProps) => {
+export const LocationContentComponent = ({ locationContent, dispatch }: LocationContentProps) => {
   if (!locationContent) return null;
 
   return (

@@ -1,12 +1,13 @@
 import React from 'react';
 import { MultiChoiceContent } from '../../data/formInstructionsInterface';
+import { WithDispatch } from '../contentInterfaces';
 import { Label, Select } from '../sharedComponents';
 
-interface MultiChoiceContentProps {
+interface MultiChoiceContentProps extends WithDispatch {
   multiChoiceContent: MultiChoiceContent;
 }
 
-export const MultiChoiceContentComponent = ({ multiChoiceContent }: MultiChoiceContentProps) => {
+export const MultiChoiceContentComponent = ({ multiChoiceContent, dispatch }: MultiChoiceContentProps) => {
   if (!multiChoiceContent) return null;
 
   return (

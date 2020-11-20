@@ -1,12 +1,13 @@
 import React from 'react';
 import { BooleanContent } from '../../data/formInstructionsInterface';
+import { WithDispatch } from '../contentInterfaces';
 import { Label, Input } from '../sharedComponents';
 
-interface BooleanContentProps {
+interface BooleanContentProps extends WithDispatch {
   booleanContent: BooleanContent;
 }
 
-export const BooleanContentComponent = ({ booleanContent }: BooleanContentProps) => {
+export const BooleanContentComponent = ({ booleanContent, dispatch }: BooleanContentProps) => {
   if (!booleanContent) return null;
 
   return (

@@ -1,12 +1,13 @@
 import React from 'react';
 import { NumberContent } from '../../data/formInstructionsInterface';
+import { WithDispatch } from '../contentInterfaces';
 import { Label, Input } from '../sharedComponents';
 
-interface NumberContentProps {
+interface NumberContentProps extends WithDispatch {
   numberContent: NumberContent;
 }
 
-export const NumberContentComponent = ({ numberContent }: NumberContentProps) => {
+export const NumberContentComponent = ({ numberContent, dispatch }: NumberContentProps) => {
   if (!numberContent) return null;
 
   return (

@@ -2,6 +2,8 @@ import React from 'react';
 import { Section } from '../data/formInstructionsInterface';
 import { ContentComponent } from './ContentComponent';
 import styled from 'styled-components';
+import { Action } from '../state/actions';
+import { SectionState } from '../state/stateInterface';
 
 const StyledWrapper = styled.div`
   border: solid 1px black;
@@ -12,20 +14,30 @@ const StyledWrapper = styled.div`
 
 interface SectionProps {
   section: Section;
+  dispatch: React.Dispatch<Action>;
+  sectionState: SectionState;
 }
 
-export const SectionComponent = ({ section }: SectionProps) => {
+export const SectionComponent = ({ section, dispatch, sectionState }: SectionProps) => {
   if (!section || !section.content) return null;
 
   return (
     <StyledWrapper>
       <h3>{section.title}</h3>
-      {section.content.map((contentItem) => (
-        <ContentComponent
-          key={contentItem.id}
-          contentItem={contentItem}
-        />
-      ))}
+      {section.content.map((contentItem) => {
+        const contentItemState = sectionState.content.find((contentItemState) => contentItemState.id === contentItem.id);
+        if (!contentItemState) return null;
+
+        return (
+          <ContentComponent
+            key={contentItem.id}
+            contentItem={contentItem}
+            dispatch={dispatch}
+            contentItemState={contentItemState}
+            sectionId={section.id}
+          />
+        );
+      })}
     </StyledWrapper>
   );
 };
