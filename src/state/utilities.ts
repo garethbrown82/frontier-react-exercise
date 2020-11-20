@@ -4,7 +4,7 @@ import { Section } from '../data/formInstructionsInterface';
 export const createContent = (
   contentId: string,
   value: string | number | boolean = '',
-  isValid: boolean = false,
+  isValid: boolean = true,
 ): ContentItemState => ({
   id: contentId,
   value,

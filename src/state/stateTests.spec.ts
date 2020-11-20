@@ -151,12 +151,12 @@ describe('createStateFromInstructions', () => {
           {
             id: contentId1,
             value: '',
-            isValid: false,
+            isValid: true,
           },
           {
             id: contentId2,
             value: '',
-            isValid: false,
+            isValid: true,
           },
         ],
       },
@@ -166,12 +166,12 @@ describe('createStateFromInstructions', () => {
           {
             id: contentId3,
             value: '',
-            isValid: false,
+            isValid: true,
           },
           {
             id: contentId4,
             value: '',
-            isValid: false,
+            isValid: true,
           },
         ],
       },

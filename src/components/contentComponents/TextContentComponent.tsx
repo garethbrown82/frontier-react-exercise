@@ -16,13 +16,15 @@ export const TextContentComponent = ({ textContent, dispatch, contentItemState, 
     event.preventDefault();
     event.stopPropagation();
     dispatch(updateValue(sectionId, contentItemState.id, event.target.value));
-    checkValidation();
+    checkValidation(event.target.value);
   };
 
-  const handleBlur = () => { checkValidation(); };
+  const handleBlur = (event: any) => { 
+    checkValidation(event.target.value);
+  };
 
-  const checkValidation = () => {
-    const isValid = validate(contentItemState.value, textContent.metadata.required);
+  const checkValidation = (value: string) => {
+    const isValid = validate(value as string, textContent.metadata.required);
     dispatch(updateIsValid(sectionId, contentItemState.id, isValid));
   };
 
