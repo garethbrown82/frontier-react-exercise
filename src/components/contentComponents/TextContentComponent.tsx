@@ -39,7 +39,7 @@ export const TextContentComponent = ({ textContent, dispatch, contentItemState, 
         onBlur={handleBlur}
         value={contentItemState.value as string}
       />
-      {!contentItemState.isValid && <ValidationMessage>* Please enter valid text.</ValidationMessage>}
+      {!contentItemState.isValid && <ValidationMessage>* Please enter valid text</ValidationMessage>}
     </>
   );
 };
