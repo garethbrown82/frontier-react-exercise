@@ -1,9 +1,9 @@
 import React from 'react';
 import { UrlContent } from '../../data/formInstructionsInterface';
-import { WithDispatch } from '../contentInterfaces';
+import { SharedContentProps } from '../contentInterfaces';
 import { Label, Input } from '../sharedComponents';
 
-interface UrlContentProps extends WithDispatch {
+interface UrlContentProps extends SharedContentProps {
   urlContent: UrlContent;
 }
 

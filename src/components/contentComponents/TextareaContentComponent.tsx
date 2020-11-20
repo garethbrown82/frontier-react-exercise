@@ -1,9 +1,9 @@
 import React from 'react';
 import { TextareaContent } from '../../data/formInstructionsInterface';
-import { WithDispatch } from '../contentInterfaces';
+import { SharedContentProps } from '../contentInterfaces';
 import { Label, Textarea } from '../sharedComponents';
 
-interface TextareaContentProps extends WithDispatch {
+interface TextareaContentProps extends SharedContentProps {
   textareaContent: TextareaContent;
 }
 

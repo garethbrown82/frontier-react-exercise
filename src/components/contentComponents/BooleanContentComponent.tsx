@@ -1,9 +1,9 @@
 import React from 'react';
 import { BooleanContent } from '../../data/formInstructionsInterface';
-import { WithDispatch } from '../contentInterfaces';
+import { SharedContentProps } from '../contentInterfaces';
 import { Label, Input } from '../sharedComponents';
 
-interface BooleanContentProps extends WithDispatch {
+interface BooleanContentProps extends SharedContentProps {
   booleanContent: BooleanContent;
 }
 

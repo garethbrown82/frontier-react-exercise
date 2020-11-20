@@ -1,14 +1,11 @@
 import React from 'react';
 import { EmailContent } from '../../data/formInstructionsInterface';
 import { updateValue } from '../../state/actions';
-import { ContentItemState } from '../../state/stateInterface';
-import { WithDispatch } from '../contentInterfaces';
+import { SharedContentProps } from '../contentInterfaces';
 import { Label, Input } from '../sharedComponents';
 
-interface EmailContentProps extends WithDispatch {
+interface EmailContentProps extends SharedContentProps {
   emailContent: EmailContent;
-  contentItemState: ContentItemState;
-  sectionId: string;
 }
 
 export const EmailContentComponent = ({ emailContent, dispatch, contentItemState, sectionId }: EmailContentProps) => {

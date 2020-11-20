@@ -1,9 +1,9 @@
 import React from 'react';
 import { LocationContent } from '../../data/formInstructionsInterface';
-import { WithDispatch } from '../contentInterfaces';
+import { SharedContentProps } from '../contentInterfaces';
 import { Label, Input } from '../sharedComponents';
 
-interface LocationContentProps extends WithDispatch {
+interface LocationContentProps extends SharedContentProps {
   locationContent: LocationContent;
 }
 

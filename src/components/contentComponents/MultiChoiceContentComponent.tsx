@@ -1,9 +1,9 @@
 import React from 'react';
 import { MultiChoiceContent } from '../../data/formInstructionsInterface';
-import { WithDispatch } from '../contentInterfaces';
+import { SharedContentProps } from '../contentInterfaces';
 import { Label, Select } from '../sharedComponents';
 
-interface MultiChoiceContentProps extends WithDispatch {
+interface MultiChoiceContentProps extends SharedContentProps {
   multiChoiceContent: MultiChoiceContent;
 }
 

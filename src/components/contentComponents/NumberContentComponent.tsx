@@ -1,9 +1,9 @@
 import React from 'react';
 import { NumberContent } from '../../data/formInstructionsInterface';
-import { WithDispatch } from '../contentInterfaces';
+import { SharedContentProps } from '../contentInterfaces';
 import { Label, Input } from '../sharedComponents';
 
-interface NumberContentProps extends WithDispatch {
+interface NumberContentProps extends SharedContentProps {
   numberContent: NumberContent;
 }
 

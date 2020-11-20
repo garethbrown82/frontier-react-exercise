@@ -1,9 +1,9 @@
 import React from 'react';
 import { MonoChoiceContent } from '../../data/formInstructionsInterface';
-import { WithDispatch } from '../contentInterfaces';
+import { SharedContentProps } from '../contentInterfaces';
 import { Label, Select } from '../sharedComponents';
 
-interface MonoChoiceContentProps extends WithDispatch {
+interface MonoChoiceContentProps extends SharedContentProps {
   monoChoiceContent: MonoChoiceContent;
 }
 

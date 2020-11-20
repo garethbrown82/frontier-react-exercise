@@ -12,7 +12,7 @@ import {
   MonoChoiceContentComponent,
   MultiChoiceContentComponent,
 } from './contentComponents';
-import { WithDispatch } from './contentInterfaces';
+import { SharedContentProps } from './contentInterfaces';
 import styled from 'styled-components';
 import { Action } from '../state/actions';
 import { ContentItemState } from '../state/stateInterface';
@@ -23,10 +23,8 @@ const StyledContentContainer = styled.div`
   padding: 10px 0;
 `;
 
-interface ContentProps extends WithDispatch {
+interface ContentProps extends SharedContentProps {
   contentItem: ContentItem;
-  contentItemState: ContentItemState;
-  sectionId: string;
 }
 
 export const ContentComponent = ({ contentItem, dispatch, contentItemState, sectionId }: ContentProps) => {
@@ -72,6 +70,8 @@ const getContent = (
       <PhoneContentComponent
         phoneContent={contentItem}
         dispatch={dispatch}
+        contentItemState={contentItemState}
+        sectionId={sectionId}
       />
     );
   }
@@ -81,6 +81,8 @@ const getContent = (
       <LocationContentComponent
         locationContent={contentItem}
         dispatch={dispatch}
+        contentItemState={contentItemState}
+        sectionId={sectionId}
       />
     );
   }
@@ -90,6 +92,8 @@ const getContent = (
       <UrlContentComponent
         urlContent={contentItem}
         dispatch={dispatch}
+        contentItemState={contentItemState}
+        sectionId={sectionId}
       />
     );
   }
@@ -99,6 +103,8 @@ const getContent = (
       <TextareaContentComponent
         textareaContent={contentItem}
         dispatch={dispatch}
+        contentItemState={contentItemState}
+        sectionId={sectionId}
       />);
   }
 
@@ -107,6 +113,8 @@ const getContent = (
       <NumberContentComponent
         numberContent={contentItem}
         dispatch={dispatch}
+        contentItemState={contentItemState}
+        sectionId={sectionId}
       />
     );
   }
@@ -116,6 +124,8 @@ const getContent = (
       <BooleanContentComponent
         booleanContent={contentItem}
         dispatch={dispatch}
+        contentItemState={contentItemState}
+        sectionId={sectionId}
       />
     );
   }
@@ -125,6 +135,8 @@ const getContent = (
       <MonoChoiceContentComponent
         monoChoiceContent={contentItem}
         dispatch={dispatch}
+        contentItemState={contentItemState}
+        sectionId={sectionId}
       />
     );
   }
@@ -134,6 +146,8 @@ const getContent = (
       <MultiChoiceContentComponent
         multiChoiceContent={contentItem}
         dispatch={dispatch}
+        contentItemState={contentItemState}
+        sectionId={sectionId}
       />
     );
   }
