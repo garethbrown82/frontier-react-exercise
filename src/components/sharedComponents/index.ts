@@ -3,7 +3,8 @@ import {
   Input,
   Textarea,
   Select,
-} from './styledInputTags';
+  Heading3,
+} from './styledHtmlElements';
 
 import { ValidationMessage } from './ValidationMessage';
 export {
@@ -11,5 +12,6 @@ export {
   Input,
   Textarea,
   Select,
+  Heading3,
   ValidationMessage,
 };
