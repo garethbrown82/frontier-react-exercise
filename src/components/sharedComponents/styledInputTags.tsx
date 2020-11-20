@@ -18,7 +18,3 @@ export const Textarea = styled.textarea`
 export const Select = styled.select`
   padding: 10px;
 `;
-
-export const ValidationMessage = styled.span`
-  color: red;
-`;

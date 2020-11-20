@@ -39,7 +39,10 @@ export const NumberContentComponent = ({ numberContent, dispatch, contentItemSta
         onBlur={handleBlur}
         value={contentItemState.value as number}
       />
-      {!contentItemState.isValid && <ValidationMessage>* Please enter a number</ValidationMessage>}
+      <ValidationMessage
+        isValid={contentItemState.isValid}
+        message="Please enter number"
+      />
     </>
   );
 };

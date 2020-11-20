@@ -55,7 +55,10 @@ export const MultiChoiceContentComponent = ({ multiChoiceContent, dispatch, cont
           );
         })}
       </Select>
-      {!contentItemState.isValid && <ValidationMessage>* Please make a selection</ValidationMessage>}
+      <ValidationMessage
+        isValid={contentItemState.isValid}
+        message="Please make selection"
+      />
     </>
   );
 };

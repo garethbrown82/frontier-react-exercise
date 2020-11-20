@@ -31,7 +31,10 @@ export const BooleanContentComponent = ({ booleanContent, dispatch, contentItemS
         onChange={handleChange}
         checked={contentItemState.value as boolean}
       />
-      {!contentItemState.isValid && <ValidationMessage>* Please enter valid text.</ValidationMessage>}
+      <ValidationMessage
+        isValid={contentItemState.isValid}
+        message="Please make selection"
+      />
     </>
   );
 };

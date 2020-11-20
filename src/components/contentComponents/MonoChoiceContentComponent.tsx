@@ -44,7 +44,10 @@ export const MonoChoiceContentComponent = ({ monoChoiceContent, dispatch, conten
           </option>
         ))}
       </Select>
-      {!contentItemState.isValid && <ValidationMessage>* Please make a selection</ValidationMessage>}
+      <ValidationMessage
+        isValid={contentItemState.isValid}
+        message="Please make selection"
+      />
     </>
   );
 };

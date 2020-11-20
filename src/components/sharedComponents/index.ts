@@ -3,9 +3,9 @@ import {
   Input,
   Textarea,
   Select,
-  ValidationMessage,
 } from './styledInputTags';
 
+import { ValidationMessage } from './ValidationMessage';
 export {
   Label,
   Input,

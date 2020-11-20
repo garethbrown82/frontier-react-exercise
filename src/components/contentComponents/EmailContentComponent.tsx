@@ -40,7 +40,10 @@ export const EmailContentComponent = ({ emailContent, dispatch, contentItemState
         onBlur={handleBlur}
         value={contentItemState.value as string}
       />
-      {!contentItemState.isValid && <ValidationMessage>* Please enter valid text.</ValidationMessage>}
+      <ValidationMessage
+        isValid={contentItemState.isValid}
+        message="Please enter valid email"
+      />
     </>
   );
 };
