@@ -6,11 +6,14 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "@types/styled-components": "^5.1.4",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
@@ -31,7 +34,10 @@
     ],
     "rules": {
       "semi": 2,
-      "comma-dangle": [2, "always-multiline"]
+      "comma-dangle": [
+        2,
+        "always-multiline"
+      ]
     }
   },
   "browserslist": {

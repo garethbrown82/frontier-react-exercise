@@ -5,7 +5,7 @@ import { validate } from '../../state/utilities';
 import { SharedContentProps } from '../contentInterfaces';
 import { Label, Input, ValidationMessage } from '../sharedComponents';
 
-interface TextContentProps extends SharedContentProps {
+export interface TextContentProps extends SharedContentProps {
   textContent: TextContent;
 }
 
