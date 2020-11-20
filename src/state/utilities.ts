@@ -53,3 +53,8 @@ export const validate = (value: string | number | boolean | string[], required: 
   return isValid;
 };
 
+export const isAllValid = (userSections: SectionState[]) => {
+  return userSections.every((section) => {
+    return section.content.every((contentItem) => contentItem.isValid);
+  });
+};

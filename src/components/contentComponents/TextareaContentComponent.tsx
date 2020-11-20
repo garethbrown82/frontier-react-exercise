@@ -19,7 +19,7 @@ export const TextareaContentComponent = ({ textareaContent, dispatch, contentIte
     checkValidation(event.target.value);
   };
 
-  const handleBlur = (event: any) => { 
+  const handleBlur = (event: React.FocusEvent<HTMLTextAreaElement>) => { 
     checkValidation(event.target.value);
   };
 

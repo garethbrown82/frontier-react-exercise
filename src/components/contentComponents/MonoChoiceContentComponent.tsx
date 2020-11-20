@@ -19,7 +19,7 @@ export const MonoChoiceContentComponent = ({ monoChoiceContent, dispatch, conten
     checkValidation(event.target.value);
   };
 
-  const handleBlur = (event: any) => { 
+  const handleBlur = (event: React.FocusEvent<HTMLSelectElement>) => { 
     checkValidation(event.target.value);
   };
 

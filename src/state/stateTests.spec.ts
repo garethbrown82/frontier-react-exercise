@@ -2,7 +2,7 @@ import { Section, Type, Format } from '../data/formInstructionsInterface';
 import { updateValue, ActionType, UpdateValue } from './actions';
 import { State, SectionState } from './stateInterface';
 import { userInputReducer } from './userInputReducer';
-import { createContent, createStateFromSections, MetaData, validate } from './utilities';
+import { createContent, createStateFromSections, isAllValid, validate } from './utilities';
 
 describe('actions', () => {
   it('creates an action to update a value', () => {
@@ -208,5 +208,81 @@ describe('validate', () => {
     const pattern = "[0-9]{3}-?[0-9]{3}-?[0-9]{4}";
 
     expect(validate('0hh-000-0055', true, pattern)).toBe(false);
+  });
+});
+
+describe('isAllValid', () => {
+  it('correctly returns false if user content is invalid', () => {
+    const userSections: SectionState[] = [
+      {
+        id: 'sectionId1',
+        content: [
+          {
+            id: 'contentId1',
+            value: '',
+            isValid: true,
+          },
+          {
+            id: 'contentId2',
+            value: '',
+            isValid: true,
+          },
+        ],
+      },
+      {
+        id: 'sectionId2',
+        content: [
+          {
+            id: 'contentId3',
+            value: '',
+            isValid: false,
+          },
+          {
+            id: 'contentId4',
+            value: '',
+            isValid: true,
+          },
+        ],
+      },
+    ];
+
+    expect(isAllValid(userSections)).toBe(false);
+  });
+
+  it('correctly returns true if all user content is valid', () => {
+    const userSections: SectionState[] = [
+      {
+        id: 'sectionId1',
+        content: [
+          {
+            id: 'contentId1',
+            value: '',
+            isValid: true,
+          },
+          {
+            id: 'contentId2',
+            value: '',
+            isValid: true,
+          },
+        ],
+      },
+      {
+        id: 'sectionId2',
+        content: [
+          {
+            id: 'contentId3',
+            value: '',
+            isValid: true,
+          },
+          {
+            id: 'contentId4',
+            value: '',
+            isValid: true,
+          },
+        ],
+      },
+    ];
+
+    expect(isAllValid(userSections)).toBe(true);
   });
 });

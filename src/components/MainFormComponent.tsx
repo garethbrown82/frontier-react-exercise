@@ -1,9 +1,9 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
 import { Section } from '../data/formInstructionsInterface';
 import { SectionComponent } from './SectionComponent';
 import { userInputReducer } from '../state/userInputReducer';
 import { State } from '../state/stateInterface';
-import { createStateFromSections } from '../state/utilities';
+import { createStateFromSections, isAllValid } from '../state/utilities';
 import { Action } from '../state/actions';
 import styled from 'styled-components';
 
@@ -12,33 +12,42 @@ const ButtonWrapper = styled.div`
 `;
 
 const StyledButton = styled.button`
-  background-color: white;
+  background-color: green;
   border: solid 1px black;
   width: 100%;
   padding: 15px;
   border-radius: 5px;
+
+  &:disabled {
+    cursor: default;
+    background-color: lightgrey;
+  }
 `;
 
 interface MainFormProps {
   formSections: ReadonlyArray<Section>;
 }
 
-export const MainFormComponent = ({ formSections }: MainFormProps) => {
+export const MainFormComponent = ({ formSections }: MainFormProps = { formSections: [] }) => {
+  const [isAllInputValid, setIsAllInputValid] = useState(false);
+  
   const initialState: State = {
     userDetails: {
       sections: createStateFromSections(formSections),
     },
   };
-
+  
   const [state, dispatch]: [State, React.Dispatch<Action>] = useReducer(userInputReducer, initialState);
-  console.log('state: ', state);
+
+  useEffect(() => {
+    setIsAllInputValid(isAllValid(state.userDetails.sections));
+    console.log('isAllValid: ', isAllInputValid);
+  }, [state.userDetails.sections, isAllInputValid]);
 
   const handleSubmit = () => {
     console.log('User input state: ', state.userDetails);
   };
 
-  if (!formSections) return null;
-  
   return (
     <>
       {formSections.map((section) => {
@@ -55,7 +64,12 @@ export const MainFormComponent = ({ formSections }: MainFormProps) => {
         );
       })}
       <ButtonWrapper>
-        <StyledButton onClick={handleSubmit}>Submit</StyledButton>
+        <StyledButton
+          onClick={handleSubmit}
+          disabled={!isAllInputValid}
+        >
+          Submit
+        </StyledButton>
       </ButtonWrapper>
     </>
   );

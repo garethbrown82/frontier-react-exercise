@@ -19,7 +19,7 @@ export const NumberContentComponent = ({ numberContent, dispatch, contentItemSta
     checkValidation(event.target.value);
   };
 
-  const handleBlur = (event: any) => { 
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => { 
     checkValidation(event.target.value);
   };
 
