@@ -18,7 +18,7 @@ export const MainFormComponent = ({ formSections }: MainFormProps) => {
   };
 
   const [state, dispatch]: [State, React.Dispatch<Action>] = useReducer(userInputReducer, initialState);
-
+  console.log('state: ', state);
   if (!formSections) return null;
   
   return (

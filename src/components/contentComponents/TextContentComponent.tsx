@@ -26,7 +26,7 @@ export const TextContentComponent = ({ textContent, dispatch, contentItemState, 
         id={textContent.id}
         name={textContent.id}
         onChange={handleChange}
-        value={contentItemState.value as any}
+        value={contentItemState.value as string}
       />
     </>
   );

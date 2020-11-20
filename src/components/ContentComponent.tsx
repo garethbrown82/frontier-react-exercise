@@ -57,39 +57,83 @@ const getContent = (
   }
 
   if (contentItem.type === Type.Email) {
-    return <EmailContentComponent emailContent={contentItem} dispatch={dispatch} />;
+    return (
+      <EmailContentComponent
+        emailContent={contentItem}
+        dispatch={dispatch}
+      />
+    );
   }
 
   if (contentItem.type === Type.Phone) {
-    return <PhoneContentComponent phoneContent={contentItem} dispatch={dispatch} />;
+    return (
+      <PhoneContentComponent
+        phoneContent={contentItem}
+        dispatch={dispatch}
+      />
+    );
   }
 
   if (contentItem.type === Type.Location) {
-    return <LocationContentComponent locationContent={contentItem} dispatch={dispatch} />;
+    return (
+      <LocationContentComponent
+        locationContent={contentItem}
+        dispatch={dispatch}
+      />
+    );
   }
 
   if (contentItem.type === Type.Url) {
-    return <UrlContentComponent urlContent={contentItem} dispatch={dispatch} />;
+    return (
+      <UrlContentComponent
+        urlContent={contentItem}
+        dispatch={dispatch}
+      />
+    );
   }
 
   if (contentItem.type === Type.Textarea) {
-    return <TextareaContentComponent textareaContent={contentItem} dispatch={dispatch} />;
+    return (
+      <TextareaContentComponent
+        textareaContent={contentItem}
+        dispatch={dispatch}
+      />);
   }
 
   if (contentItem.type === Type.Number) {
-    return <NumberContentComponent numberContent={contentItem} dispatch={dispatch} />;
+    return (
+      <NumberContentComponent
+        numberContent={contentItem}
+        dispatch={dispatch}
+      />
+    );
   }
 
   if (contentItem.type === Type.Boolean) {
-    return <BooleanContentComponent booleanContent={contentItem} dispatch={dispatch} />;
+    return (
+      <BooleanContentComponent
+        booleanContent={contentItem}
+        dispatch={dispatch}
+      />
+    );
   }
 
   if (contentItem.type === Type.MonoChoice) {
-    return <MonoChoiceContentComponent monoChoiceContent={contentItem} dispatch={dispatch} />;
+    return (
+      <MonoChoiceContentComponent
+        monoChoiceContent={contentItem}
+        dispatch={dispatch}
+      />
+    );
   }
 
   if (contentItem.type === Type.MultiChoice) {
-    return <MultiChoiceContentComponent multiChoiceContent={contentItem} dispatch={dispatch} />;
+    return (
+      <MultiChoiceContentComponent
+        multiChoiceContent={contentItem}
+        dispatch={dispatch}
+      />
+    );
   }
 
   return null;
