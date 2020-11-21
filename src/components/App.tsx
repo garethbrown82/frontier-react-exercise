@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const StyledFormContainer = styled.div`
   max-width: 500px;
   margin: auto;
+  font-family: sans-serif;
 `;
 
 function App() {

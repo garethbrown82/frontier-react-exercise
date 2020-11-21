@@ -12,7 +12,8 @@ const ButtonWrapper = styled.div`
 `;
 
 const StyledButton = styled.button`
-  background-color: green;
+  background-color: #00C781;
+  font-size: 1em;
   border: solid 1px black;
   width: 100%;
   padding: 15px;

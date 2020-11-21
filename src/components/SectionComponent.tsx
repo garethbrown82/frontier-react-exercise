@@ -4,7 +4,6 @@ import { ContentComponent } from './ContentComponent';
 import styled from 'styled-components';
 import { Action } from '../state/actions';
 import { SectionState } from '../state/stateInterface';
-import { Heading3 } from './sharedComponents';
 
 const StyledWrapper = styled.div`
   border: solid 1px black;
@@ -24,7 +23,7 @@ export const SectionComponent = ({ section, dispatch, sectionState }: SectionPro
 
   return (
     <StyledWrapper>
-      <Heading3>{section.title}</Heading3>
+      <h3>{section.title}</h3>
       {section.content.map((contentItem) => {
         const contentItemState = sectionState.content.find((contentItemState) => contentItemState.id === contentItem.id);
         if (!contentItemState) return null;
